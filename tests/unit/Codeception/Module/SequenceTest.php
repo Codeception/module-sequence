@@ -5,7 +5,8 @@ class SequenceTest extends \Codeception\Test\Unit
     // tests
     public function testSequences()
     {
-        $module = new \Codeception\Module\Sequence(make_container());
+        $container = \Codeception\Util\Stub::make('Codeception\Lib\ModuleContainer');
+        $module = new \Codeception\Module\Sequence($container);
         $this->assertNotEquals(sq(), sq());
         $this->assertNotEquals(sq(1), sq(2));
         $this->assertEquals(sq(1), sq(1));
@@ -16,7 +17,8 @@ class SequenceTest extends \Codeception\Test\Unit
 
     public function testSuiteSequences()
     {
-        $module = new \Codeception\Module\Sequence(make_container());
+        $container = \Codeception\Util\Stub::make('Codeception\Lib\ModuleContainer');
+        $module = new \Codeception\Module\Sequence($container);
         $this->assertNotEquals(sqs(), sqs());
         $this->assertNotEquals(sqs(1), sqs(2));
         $this->assertEquals(sqs(1), sqs(1));
