@@ -1,6 +1,6 @@
 # Sequence module for Codeception
 
-[![Build Status](https://travis-ci.org/Codeception/module-sequence.svg?branch=master)](https://travis-ci.org/Codeception/module-sequence)
+![Build Status](https://github.com/Codeception/module-sequence/workflows/CI/badge.svg)
 
 ## Installation
 
