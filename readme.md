@@ -11,3 +11,5 @@ composer require --dev "codeception/module-sequence"
 ## Documentation
 
 [Module documentation](https://codeception.com/docs/modules/Sequence)
+
+[Changelog](https://github.com/Codeception/module-sequence/releases)
