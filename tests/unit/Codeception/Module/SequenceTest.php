@@ -1,31 +1,36 @@
 <?php
 
-class SequenceTest extends \Codeception\Test\Unit
+declare(strict_types=1);
+
+use Codeception\Lib\ModuleContainer;
+use Codeception\Module\Sequence;
+use Codeception\Test\Unit;
+use Codeception\Util\Stub;
+
+final class SequenceTest extends Unit
 {
-    // tests
-    public function testSequences()
+    public function testSequences(): void
     {
-        $container = \Codeception\Util\Stub::make('Codeception\Lib\ModuleContainer');
-        $module = new \Codeception\Module\Sequence($container);
-        $this->assertNotEquals(sq(), sq());
-        $this->assertNotEquals(sq(1), sq(2));
-        $this->assertEquals(sq(1), sq(1));
-        $old = sq(1);
+        $container = Stub::make(ModuleContainer::class);
+        $module = new Sequence($container);
+        $this->assertNotEquals(sq(''), sq(''));
+        $this->assertNotEquals(sq('1'), sq('2'));
+        $this->assertEquals(sq('1'), sq('1'));
+        $old = sq('1');
         $module->_after($this);
-        $this->assertNotEquals($old, sq(1));
+        $this->assertNotEquals($old, sq('1'));
     }
 
-    public function testSuiteSequences()
+    public function testSuiteSequences(): void
     {
-        $container = \Codeception\Util\Stub::make('Codeception\Lib\ModuleContainer');
-        $module = new \Codeception\Module\Sequence($container);
-        $this->assertNotEquals(sqs(), sqs());
-        $this->assertNotEquals(sqs(1), sqs(2));
-        $this->assertEquals(sqs(1), sqs(1));
-        $old = sqs(1);
+        $container = Stub::make(ModuleContainer::class);
+        $module = new Sequence($container);
+        $this->assertNotEquals(sqs('1'), sqs('2'));
+        $this->assertEquals(sqs('1'), sqs('1'));
+        $old = sqs('1');
         $module->_after($this);
-        $this->assertEquals($old, sqs(1));
+        $this->assertEquals($old, sqs('1'));
         $module->_afterSuite();
-        $this->assertNotEquals($old, sqs(1));
+        $this->assertNotEquals($old, sqs('1'));
     }
 }
