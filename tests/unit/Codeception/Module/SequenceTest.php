@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Codeception\Lib\ModuleContainer;
 use Codeception\Module\Sequence;
 use Codeception\Test\Unit;
-use Codeception\Util\Stub;
+use Codeception\Stub;
 
 final class SequenceTest extends Unit
 {

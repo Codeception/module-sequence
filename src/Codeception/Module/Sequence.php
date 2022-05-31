@@ -109,7 +109,7 @@ class Sequence extends Module
     /**
      * @var array<string, string>
      */
-    protected $config = ['prefix' => '{id}_'];
+    protected array $config = ['prefix' => '{id}_'];
 
     public function _initialize()
     {
