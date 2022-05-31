@@ -100,8 +100,14 @@ use Codeception\TestInterface;
  */
 class Sequence extends Module
 {
+    /**
+     * @var array<int|string,string>
+     */
     public static array $hash = [];
 
+    /**
+     * @var array<int|string,string>
+     */
     public static array $suiteHash = [];
 
     public static string $prefix = '';
@@ -111,17 +117,17 @@ class Sequence extends Module
      */
     protected array $config = ['prefix' => '{id}_'];
 
-    public function _initialize()
+    public function _initialize(): void
     {
         static::$prefix = $this->config['prefix'];
     }
 
-    public function _after(TestInterface $t)
+    public function _after(TestInterface $test): void
     {
         self::$hash = [];
     }
 
-    public function _afterSuite()
+    public function _afterSuite(): void
     {
         self::$suiteHash = [];
     }
