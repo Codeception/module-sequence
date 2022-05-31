@@ -132,9 +132,3 @@ class Sequence extends Module
         self::$suiteHash = [];
     }
 }
-
-if (!function_exists('sq') && !function_exists('sqs')) {
-    require_once __DIR__ . '/../Util/sq.php';
-} else {
-    throw new ModuleException(Sequence::class, "function 'sq' and 'sqs' already defined");
-}
