@@ -12,11 +12,12 @@
     ],
     "minimum-stability": "RC",
     "require": {
-        "php": "^7.4 | ^8.0",
-        "codeception/codeception": "^4.0"
+        "php": "^8.0",
+        "codeception/codeception": "^5.0"
     },
     "autoload":{
-        "classmap": ["src/"]
+        "classmap": ["src/"],
+        "files": ["src/Codeception/Util/sq.php"]
     },
     "config": {
         "classmap-authoritative": true

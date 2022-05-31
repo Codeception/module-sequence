@@ -100,8 +100,14 @@ use Codeception\TestInterface;
  */
 class Sequence extends Module
 {
+    /**
+     * @var array<int|string,string>
+     */
     public static array $hash = [];
 
+    /**
+     * @var array<int|string,string>
+     */
     public static array $suiteHash = [];
 
     public static string $prefix = '';
@@ -109,26 +115,20 @@ class Sequence extends Module
     /**
      * @var array<string, string>
      */
-    protected $config = ['prefix' => '{id}_'];
+    protected array $config = ['prefix' => '{id}_'];
 
-    public function _initialize()
+    public function _initialize(): void
     {
         static::$prefix = $this->config['prefix'];
     }
 
-    public function _after(TestInterface $t)
+    public function _after(TestInterface $test): void
     {
         self::$hash = [];
     }
 
-    public function _afterSuite()
+    public function _afterSuite(): void
     {
         self::$suiteHash = [];
     }
-}
-
-if (!function_exists('sq') && !function_exists('sqs')) {
-    require_once __DIR__ . '/../Util/sq.php';
-} else {
-    throw new ModuleException(Sequence::class, "function 'sq' and 'sqs' already defined");
 }
