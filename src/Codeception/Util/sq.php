@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Codeception\Module\Sequence;
 
-function sq(int|string $id = null): string
+function sq(int|string|null $id = null): string
 {
     if ($id && isset(Sequence::$hash[$id])) {
         return Sequence::$hash[$id];
@@ -19,7 +19,7 @@ function sq(int|string $id = null): string
     return $sequence;
 }
 
-function sqs(int|string $id = null): string
+function sqs(int|string|null $id = null): string
 {
     if ($id && isset(Sequence::$suiteHash[$id])) {
         return Sequence::$suiteHash[$id];
